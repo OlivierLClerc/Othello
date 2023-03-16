@@ -1,6 +1,18 @@
 class Board:
     def __init__(self):
-        self.grid = [[' ' for i in range(8)] for i in range(8)]
+        self.grid = [[0 for x in range(8)] for y in range(8)]
+
+    def set_value(self, row, col, value):
+        self.board[row][col] = value
+
+    def get_value(self, row, col):
+        return self.board[row][col]
+    
+
+
+
+
+
 
 #coord = [
 #    'a1', 'b1', 'c1', 'd1', 'e1', 'f1', 'g1', 'h1', 
