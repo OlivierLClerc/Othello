@@ -1,3 +1,5 @@
+from Pawn import Pawn
+
 class Board:
     def __init__(self):
         '''
@@ -35,8 +37,8 @@ class Board:
         
         return output
     
-    def add_Pawn(self, ligneJoueur, colonneJoueur, Joueur):
-        self.grid[ligneJoueur][colonneJoueur]=Pawn.pawn_form(Joueur.couleur)
+    def add_pawn(self, ligne_joueur, colonne_joueur, couleur_joueur):
+        self.grid[ligne_joueur][colonne_joueur]=Pawn(couleur_joueur)
       
 
 
