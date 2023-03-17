@@ -1,15 +1,15 @@
-# test
 class Board:
     def __init__(self):
-        self.grid = [[0 for x in range(8)] for y in range(8)]
+        '''
+        Construction board as a 8x8 grid
+        '''
+        self.grid = [[0 for _ in range(8)] for _ in range(8)]
 
-    def set_value(self, row, col, value):
-        self.board[row][col] = value
-
-    def get_value(self, row, col):
-        return self.board[row][col]
-    
-
+    def __str__(self):
+        rows = []
+        for row in self.grid:
+            rows.append(" ".join(str(x) for x in row))
+        return "\n".join(rows)
 
 
 
