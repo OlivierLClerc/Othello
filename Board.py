@@ -1,3 +1,4 @@
+# test
 class Board:
     def __init__(self):
         self.grid = [[0 for x in range(8)] for y in range(8)]
