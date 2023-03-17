@@ -37,11 +37,20 @@ class Board:
         
         return output
     
-    def add_pawn(self, ligneJoueur, colonneJoueur, joueur):
-        my_new_pawn = Pawn(joueur)
-        my_new_pawn.pawn_form()
-        self.grid[ligneJoueur][colonneJoueur]=my_new_pawn
-      
+    def add_pawn(self, ligne_joueur, colonne_joueur, joueur):
+        my_new_pawn = Pawn(ligne_joueur,colonne_joueur,joueur)
+        self.grid[ligne_joueur][colonne_joueur]=my_new_pawn
+
+
+    #check si le jeton que l'on pose est sur une case adjacente d'un autre jeton
+    # X et Y sont les coordonnées du jeton  
+    #def is_adjacent(self, X, Y, list_of_pawns):
+       # adjacent = [[X-1,Y], [X+1,Y], [X,Y+1], [X,Y-1], [X-1,Y-1], [X-1,Y+1], [X+1,Y-1], [X+1,Y+1]]
+        #if adjacent not in list_of_pawns:
+          #  return "Not possible"
+
+
+
 
 
 
