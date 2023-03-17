@@ -5,13 +5,15 @@ class Board:
         '''
         self.grid = [[0 for _ in range(8)] for _ in range(8)]
 
+
     def __str__(self):
         rows = []
         for row in self.grid:
             rows.append(" ".join(str(x) for x in row))
         return "\n".join(rows)
 
-
+    def add_Pawn(self, ligneJoueur, colonneJoueur, Joueur):
+        self.grid[ligneJoueur][colonneJoueur]=Pawn.pawn_form(Joueur.couleur)
 
 
 
