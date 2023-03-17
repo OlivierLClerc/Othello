@@ -1,6 +1,4 @@
 # Here the mechanics of the game
-from Board import Board
-from player import Joueur
 
 class Engine:
     def __init__(self, board, joueur_noir, joueur_blanc):
@@ -15,4 +13,4 @@ class Engine:
             joueur.jouer(self.board)
             nb_coup_joue += 1
             joueur = self.joueur_blanc if joueur == self.joueur_noir else self.joueur_noir
-
+            print(str(self.board))
