@@ -3,17 +3,41 @@ class Board:
         '''
         Construction board as a 8x8 grid
         '''
-        self.grid = [[0 for _ in range(8)] for _ in range(8)]
+        self.grid = [[" " for _ in range(8)] for _ in range(8)]
+
 
 
     def __str__(self):
-        rows = []
-        for row in self.grid:
-            rows.append(" ".join(str(x) for x in row))
-        return "\n".join(rows)
+        # Define cell boundaries
+        hori = "---"
+        vert = "|"
+        corn = "+"
 
+        # Build string representation of board
+        output = ""
+
+        # Add empty horizontal line at the top of the grid
+        output += "\n"
+        
+        for row in self.grid:
+            # Add horizontal line at the top of the row
+            output += (corn + hori) * len(row) + corn + "\n"
+
+      # Add each cell in the row, separated by vertical lines
+            for cell in row:
+                output += f"{vert} {cell} "
+
+            # Add vertical line at the end of the row
+            output += vert + "\n"
+
+        # Add horizontal line at the bottom of the grid
+        output += (corn + hori) * len(row) + corn + "\n"
+        
+        return output
+    
     def add_Pawn(self, ligneJoueur, colonneJoueur, Joueur):
         self.grid[ligneJoueur][colonneJoueur]=Pawn.pawn_form(Joueur.couleur)
+      
 
 
 
