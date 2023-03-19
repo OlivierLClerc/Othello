@@ -18,4 +18,8 @@ class Pawn:
             self.form = "O"
         return self.form
 
-    
+    def flip(self):
+        if self.color== "black":
+            self.color=="white"
+        else:
+            self.color="black"
