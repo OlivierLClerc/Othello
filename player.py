@@ -24,5 +24,6 @@ class Joueur:
             col_index = int(x[1])
         board.grid[ligne_index][col_index] = Pawn(ligne_index,col_index,self.couleur)
         for i in range(len(opposite_pawn)):
-            pawn_to_flip=board.grid[opposite_pawn[i][0]][opposite_pawn[i][1]]
+            row, col = opposite_pawn[i]
+            pawn_to_flip = board.grid[row][col]
             pawn_to_flip.flip()
