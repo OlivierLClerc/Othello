@@ -41,11 +41,15 @@ class Board:
         return output
     
     def check_valide(self, ligne_joueur, colonne_joueur, joueur):
+        valide =0
         my_new_pawn = Pawn(ligne_joueur,colonne_joueur,joueur)
-        for cell in my_new_pawn.adjacent:
-            if isinstance(self.grid[cell[0]][cell[1]], Pawn):
-                if my_new_pawn.couleur != self.grid[cell[0]][cell[1]].couleur:
-                    return True
+        playable,opposite_pawn=check_playable(my_new_pawn,self, ligne_joueur,colonne_joueur)
+        if playable ==1:
+            for cell in my_new_pawn.adjacent:
+                if isinstance(self.grid[cell[0]][cell[1]], Pawn):
+                    if my_new_pawn.couleur != self.grid[cell[0]][cell[1]].couleur:
+                        valide =1
+                        return valide,opposite_pawn
         return False
 
 
