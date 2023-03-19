@@ -6,7 +6,10 @@ class Board:
         Construction board as a 8x8 grid
         '''
         self.grid = [[" " for _ in range(8)] for _ in range(8)]
-
+        self.grid[3][3] = Pawn(3,3,"white")
+        self.grid[3][4] = Pawn(3,4,"black")
+        self.grid[4][3] = Pawn(4,3,"black")
+        self.grid[4][4] = Pawn(4,4,"white")
 
 
     def __str__(self):
@@ -37,9 +40,14 @@ class Board:
         
         return output
     
-    def add_pawn(self, ligne_joueur, colonne_joueur, joueur):
+    def check_valide(self, ligne_joueur, colonne_joueur, joueur):
         my_new_pawn = Pawn(ligne_joueur,colonne_joueur,joueur)
-        self.grid[ligne_joueur][colonne_joueur]=my_new_pawn
+        for cell in my_new_pawn.adjacent:
+            if isinstance(self.grid[cell[0]][cell[1]], Pawn):
+                if my_new_pawn.couleur != self.grid[cell[0]][cell[1]].couleur:
+                    return True
+        return False
+
 
 
     #check si le jeton que l'on pose est sur une case adjacente d'un autre jeton

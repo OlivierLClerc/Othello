@@ -13,4 +13,5 @@ Josette=Joueur("josy","white")
 new_partie=Engine(my_grid,Jean_michel,Josette)
 new_partie.tour_par_tour()
 
+
 #print(Jean_michel.couleur)
