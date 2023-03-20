@@ -46,11 +46,8 @@ class Board:
         playable,opposite_pawn=my_new_pawn.check_playable(self, ligne_joueur,colonne_joueur)
         print(opposite_pawn)
         if playable ==1:
-            for cell in my_new_pawn.adjacent:
-                if isinstance(self.grid[cell[0]][cell[1]], Pawn):
-                    if my_new_pawn.couleur != self.grid[cell[0]][cell[1]].couleur:
-                        valide =1
-                        return valide,opposite_pawn
+            valide =1
+            return valide,opposite_pawn
         return valide,[]
 
 

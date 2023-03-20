@@ -21,8 +21,10 @@ class Pawn:
     def flip(self):
         if self.couleur== "black":
             self.couleur=="white"
+            self.form== "O"
         else:
             self.couleur="black"
+            self.form = "X"
 
 
     def check_playable(self,board, row, col):
@@ -31,6 +33,7 @@ class Pawn:
         opposite_pawns_tot = []
         opposite_pawns= []
         # row
+        found_opposite_pawn = False
         for i in range(col + 1, 7):
             if board.grid[row][i] is not " " and board.grid[row][i].couleur == opposite_couleur:
                 opposite_pawns.append((row, i))
@@ -76,8 +79,7 @@ class Pawn:
         found_opposite_pawn = False
         for j in range(row - 1, 0, -1):
             if board.grid[j][col] is not " " and board.grid[j][col].couleur == opposite_couleur:
-                for t in range(len(opposite_pawns)):
-                    opposite_pawns_tot.append(opposite_pawns[t])
+                opposite_pawns_tot.append(opposite_pawns[t])
                 found_opposite_pawn = True
             elif board.grid[j][col] is not " " and board.grid[j][col].couleur == self.couleur and found_opposite_pawn:
                 playable = 1
@@ -134,7 +136,7 @@ class Pawn:
         found_opposite_pawn = False
         for d in range(1, min(row, 7-col)):
             if board.grid[row-d][col+d] is not " " and board.grid[row-d][col+d].couleur == opposite_couleur:
-                opposite_pawns.append(tuple(row+d, col-d))
+                opposite_pawns.append((row+d, col-d))
                 found_opposite_pawn = True
             elif board.grid[row-d][col+d] is not " " and board.grid[row-d][col+d].couleur == self.couleur and found_opposite_pawn:
                 playable = 1
