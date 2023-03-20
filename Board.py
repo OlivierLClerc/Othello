@@ -45,10 +45,16 @@ class Board:
         
         return output
     
+
     def check_valide(self, ligne_joueur, colonne_joueur, joueur):
         valide =0
         my_new_pawn = Pawn(ligne_joueur,colonne_joueur,joueur)
+<<<<<<< HEAD
         playable, opposite_pawn =  my_new_pawn.check_playable(self, ligne_joueur,colonne_joueur)
+=======
+        playable,opposite_pawn=my_new_pawn.check_playable(self, ligne_joueur,colonne_joueur)
+        #print(opposite_pawn)
+>>>>>>> 9a609957794668d3e79bc7fc5423000578a25ab9
         if playable ==1:
             valide =1
             return valide,opposite_pawn

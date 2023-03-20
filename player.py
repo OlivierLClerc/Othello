@@ -1,10 +1,16 @@
 from Pawn import Pawn
+<<<<<<< HEAD
 from IA import IA
+=======
+import re #to check if the input matches the expected expression
+
+>>>>>>> 9a609957794668d3e79bc7fc5423000578a25ab9
 class Joueur:
     def __init__(self, nom, couleur):
         self.nom = nom
         self.couleur = couleur
 
+<<<<<<< HEAD
    
     def jouer(self, board,joueur,token):
         if isinstance(joueur, IA):
@@ -35,4 +41,40 @@ class Joueur:
                 row, col = opposite_pawn[i]
                 pawn_to_flip = board.grid[row][col]
                 pawn_to_flip.couleur = self.couleur
+=======
+
+    def jouer(self, board): 
+        # new_pawn=Pawn(self.couleur)
+        while True: 
+            x = input(f'C\'est au joueur {self.couleur} {self.nom}, entrez la position du coup : ')
+            if re.match("^[a-h][1-8]$", x):
+                break
+            else:
+                print('Notation invalide, veillez à bien entrer une lettre et un chiffre')
+
+        # convertir l'input "A1" en coordonnées pour la grid
+        col_index = ord(x[0].lower())-96-1
+        ligne_index = int(x[1])-1
+        valide, opposite_pawn = board.check_valide(ligne_index, col_index, self.couleur)
+
+        while board.grid[ligne_index][col_index] != " ":
+            print('Case déjà occupée, veuillez choisir une autre position')
+            x = input('Entrez la position du coup : ')
+            col_index = ord(x[0].lower())-96-1
+            ligne_index = int(x[1])-1
+            valide, opposite_pawn = board.check_valide(ligne_index, col_index, self.couleur)
+
+        while valide != 1:
+            print('Case non valide, veuillez choisir une autre position')
+            x = input('Entrez la position du coup : ')
+            col_index = ord(x[0].lower())-96-1
+            ligne_index = int(x[1])-1
+            valide, opposite_pawn = board.check_valide(ligne_index, col_index, self.couleur)
+        board.grid[ligne_index][col_index] = Pawn(ligne_index, col_index, self.couleur)
+        
+        for i in range(len(opposite_pawn)):
+            row, col = opposite_pawn[i]
+            pawn_to_flip = board.grid[row][col]
+            pawn_to_flip.couleur = self.couleur
+>>>>>>> 9a609957794668d3e79bc7fc5423000578a25ab9
 

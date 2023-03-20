@@ -20,14 +20,16 @@ class Pawn:
     def flip(self):
         if self.couleur== "black":
             self.couleur=="white"
-            self.form== "O"
         else:
             self.couleur="black"
-            self.form = "X"
 
 
 
+<<<<<<< HEAD
     def check_playable(self,board, row, col):
+=======
+    def check_playable(self, board, row, col):
+>>>>>>> 9a609957794668d3e79bc7fc5423000578a25ab9
         playable = 0
         opposite_couleur = 'white' if self.couleur == 'black' else 'black'
         opposite_pawns_tot = []
@@ -79,7 +81,11 @@ class Pawn:
         found_opposite_pawn = False
         for j in range(row - 1, 0, -1):
             if board.grid[j][col] is not " " and board.grid[j][col].couleur == opposite_couleur:
+<<<<<<< HEAD
                 opposite_pawns_tot.append(opposite_pawns[t])
+=======
+                opposite_pawns.append((j, col))
+>>>>>>> 9a609957794668d3e79bc7fc5423000578a25ab9
                 found_opposite_pawn = True
             elif board.grid[j][col] is not " " and board.grid[j][col].couleur == self.couleur and found_opposite_pawn:
                 playable = 1
@@ -147,4 +153,8 @@ class Pawn:
                 opposite_pawns=[]
                 break
         print(opposite_pawns_tot,opposite_pawns)
+<<<<<<< HEAD
         return playable, opposite_pawns_tot   
+=======
+        return playable, opposite_pawns_tot           
+>>>>>>> 9a609957794668d3e79bc7fc5423000578a25ab9

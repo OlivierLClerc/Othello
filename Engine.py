@@ -1,6 +1,12 @@
 # Here the mechanics of the game
 from player import Joueur
+<<<<<<< HEAD
 from Board import Board
+=======
+
+from Board import Board
+
+>>>>>>> 9a609957794668d3e79bc7fc5423000578a25ab9
 class Engine:
     def __init__(self):
         pass
