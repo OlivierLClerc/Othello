@@ -19,7 +19,7 @@ class Joueur:
         # convertir l'input "A1" en coordonnées pour la grid
         col_index = ord(x[0].lower())-96-1
         ligne_index = int(x[1])-1
-        valide, opposite_pawn = board.check_àvalide(ligne_index, col_index, self.couleur)
+        valide, opposite_pawn = board.check_valide(ligne_index, col_index, self.couleur)
 
         while board.grid[ligne_index][col_index] != " ":
             print('Case déjà occupée, veuillez choisir une autre position')
