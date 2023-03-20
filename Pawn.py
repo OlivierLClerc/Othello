@@ -1,6 +1,5 @@
 # Here the pawn/cell scr
 
-
 class Pawn:
     def __init__(self, ligne, colonne, couleur):
         self.couleur = couleur
