@@ -1,7 +1,6 @@
 # Here the mechanics of the game
-from Board import Board
 from player import Joueur
-
+from Board import Board
 class Engine:
     def __init__(self):
         pass
