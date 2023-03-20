@@ -1,4 +1,3 @@
-
 from Pawn import Pawn
 
 class Joueur:
@@ -8,7 +7,8 @@ class Joueur:
 
     def jouer(self, board):
         #new_pawn=Pawn(self.couleur)
-        x = input(f'C\'est au joueur {self.couleur}, entrez la position du coup : ')
+        x = input(f'C\'est au joueur {self.couleur} {self.nom}, entrez la position du coup : ')
+        #convertir l'input "A1" en coordonnées pour la grid
         col_index = ord(x[0].lower())-96-1
         ligne_index = int(x[1])-1
         valide,opposite_pawn=board.check_valide(ligne_index,col_index,self.couleur)
@@ -18,7 +18,7 @@ class Joueur:
             col_index = ord(x[0].lower())-96-1
             ligne_index = int(x[1])-1
             valide,opposite_pawn=board.check_valide(ligne_index,col_index,self.couleur)
-        while board.check_valide(ligne_index,col_index,self.couleur) == False:
+        while valide != 1:
             print('Case non valide, veuillez choisir une autre position')
             x = input('Entrez la position du coup : ')
             col_index = ord(x[0].lower())-96-1

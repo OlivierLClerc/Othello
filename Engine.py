@@ -9,8 +9,8 @@ class Engine:
     def tour_par_tour(self):
         print('Bienvenue dans votre partie d\'Othello')
         board = Board()
-        name_black = input('Choisir un nom pour le joueur noir :')
-        name_white = input('Choisir un nom pour le joueur blanc :')
+        name_black = input('Choisir un nom pour le joueur black :')
+        name_white = input('Choisir un nom pour le joueur white :')
         joueur_black = Joueur(name_black, "black")
         joueur_white = Joueur(name_white, "white")
         nb_coup_joue = 0

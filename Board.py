@@ -1,5 +1,5 @@
-from Engine import Engine
 from Pawn import Pawn
+
 class Board:
     def __init__(self):
         '''
@@ -49,7 +49,7 @@ class Board:
         valide =0
         my_new_pawn = Pawn(ligne_joueur,colonne_joueur,joueur)
         playable,opposite_pawn=my_new_pawn.check_playable(self, ligne_joueur,colonne_joueur)
-        print(opposite_pawn)
+        #print(opposite_pawn)
         if playable ==1:
             valide =1
             return valide,opposite_pawn
