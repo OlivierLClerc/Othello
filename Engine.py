@@ -1,36 +1,26 @@
 # Here the mechanics of the game
+from Board import Board
+from player import Joueur
+
+from Board import Board
 
 class Engine:
-    def __init__(self, board, joueur_noir, joueur_blanc):
-        self.board = board
-        self.joueur_noir = joueur_noir
-        self.joueur_blanc = joueur_blanc
+    def __init__(self):
+        pass
 
     def tour_par_tour(self):
+        print('Bienvenue dans votre partie d\'Othello')
+        board = Board()
+        name_black = input('Choisir un nom pour le joueur black :')
+        name_white = input('Choisir un nom pour le joueur white :')
+        joueur_black = Joueur(name_black, "black")
+        joueur_white = Joueur(name_white, "white")
         nb_coup_joue = 0
-        joueur = self.joueur_noir
+        joueur = joueur_black
+        print(str(board))
         while nb_coup_joue < 64:
-            joueur.jouer(self.board)
+            joueur.jouer(board)
             nb_coup_joue += 1
-            joueur = self.joueur_blanc if joueur == self.joueur_noir else self.joueur_noir
-            print(str(self.board))
+            joueur = joueur_white if joueur == joueur_black else joueur_black
+            print(str(board))
 
-
-    def check_playable(self, row, col, board,token):
-        #ligne
-        for i in range(col + 1, 7):
-            while board.grid(row, i).color != token.color:
-                self.flip(row, i)
-                break
-        for i in range(col -1, 0,-1):
-            while board.grid(row, i).color != token.color:
-                self.flip(row, i)
-                break
-        #colonne
-        for j in range(row + 1, 7):
-            while board.grid(row, i).color != token.color:
-                self.flip(col, j)
-                break
-        for j in range(row -1, 0,-1):
-            while board.grid(row, i).color != token.color:
-                self.flip(col, j)
