@@ -40,6 +40,7 @@ class Board:
         
         return output
     
+
     def check_valide(self, ligne_joueur, colonne_joueur, joueur):
         valide =0
         my_new_pawn = Pawn(ligne_joueur,colonne_joueur,joueur)
@@ -53,6 +54,8 @@ class Board:
                         return valide,opposite_pawn
         return valide,[]
 
+
+    
 
 
     #check si le jeton que l'on pose est sur une case adjacente d'un autre jeton

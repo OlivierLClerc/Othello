@@ -1,5 +1,7 @@
 # Here the mechanics of the game
 
+from Board import Board
+
 class Engine:
     def __init__(self, board, joueur_noir, joueur_blanc):
         self.board = board
