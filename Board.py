@@ -43,7 +43,10 @@ class Board:
     def check_valide(self, ligne_joueur, colonne_joueur, joueur):
         valide =0
         my_new_pawn = Pawn(ligne_joueur,colonne_joueur,joueur)
-        playable,opposite_pawn=my_new_pawn.check_playable(self, ligne_joueur,colonne_joueur)
+
+        playable  ,  opposite_pawn =  my_new_pawn.check_playable(self, ligne_joueur,colonne_joueur)
+
+
         print(opposite_pawn)
         if playable ==1:
             valide =1
@@ -51,7 +54,8 @@ class Board:
         return valide,[]
 
 
-
+    def is_on_board(self, row, col):
+        return 0 <= row < 8 and 0 <= col < 8
     #check si le jeton que l'on pose est sur une case adjacente d'un autre jeton
     # X et Y sont les coordonnées du jeton  
     #def is_adjacent(self, X, Y, list_of_pawns):
